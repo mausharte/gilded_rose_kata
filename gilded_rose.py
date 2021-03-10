@@ -13,7 +13,8 @@ class GildedRose(object):
     def updateItem(self, item):
         self.updateItemQuality(item)
         self.updateSellIn(item)
-        self.updateExpiration(item)
+        if item.sell_in < 0:
+            self.updateExpiration(item)
 
     def updateExpiration(self, item):
         if item.name == "Aged Brie":
